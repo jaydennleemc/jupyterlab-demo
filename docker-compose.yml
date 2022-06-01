@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  jupyterlab:
+    container_name: jupyter
+    image: jupyter/tensorflow-notebook
+    environment:
+      - "JUPYTER_ENABLE_LAB=yes"
+      - "RESTARTABLE=yes"
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./workspaces:/home/jovyan/work/
+    command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
